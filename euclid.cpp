@@ -7,12 +7,15 @@
 
 using namespace std;
 
-// Extended Euclidean Algorithm Calculator for modular inverse
+// Extended Euclidean Algorithm Calculator (for modular inverse)
 // Computes the inverse a of x mod y, where ax + by = gcd(a,b) and gcd(a,b) = 1
 // In other words, ax \equiv 1 mod y
 // Also computes b and gcd(a,b)
 
 // The purpose of this is to print out the steps to find the inverse
+
+// Usage: $ make
+//        $ ./euclid x y > output.txt
 
 struct Data{
     int step;
@@ -54,7 +57,6 @@ int main(int argc, char *argv[]){
         if (memo[step-1].p == 0){
             curr.p = 1;
         }else {
-            // check order of operations? 
             curr.p = memo[step-2].p - memo[step-1].p * memo[step-2].q % mod;
             if (curr.p < 0) {
                 curr.p += mod;
